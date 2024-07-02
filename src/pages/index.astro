@@ -1,213 +1,104 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
+import Header from '~/components/widgets/Header.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
-  ignoreTitleTemplate: true,
+  title: 'Personal Homepage Demo',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+  <Fragment slot="announcement"></Fragment>
+  <Fragment slot="header">
+    <Header
+      links={[
+        { text: 'Inicio', href: '/' },
+        { text: 'Yo', href: '#about' },
+        { text: 'Resumen', href: '#resume' },
+        { text: 'Portafolio', href: '#porfolio' },
+        { text: 'Github', href: 'https://github.com/T0ny-dev' },
+      ]}
+      actions={[
+        {
+          text: 'Hire me',
+          href: '#',
+        },
+      ]}
+      isSticky
+      showToggleTheme
+    />
+  </Fragment>
+
+  <!-- Hero2 Widget ******************* -->
 
   <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-      { text: 'Learn more', href: '#features' },
-    ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+    id="hero"
+    title="Antonio Rodríguez Avilés"
+    tagline="Full Stack Developer"
+    actions={[{ variant: 'primary', text: 'contacto', href: getPermalink('/contact#form') }]}
   >
-    <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white highlight"> Astro 4.0</span> + Tailwind CSS
-    </Fragment>
-
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 4.0
-        + Tailwind CSS.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
+      Soy ingeniero industrial y desarrollador con más de 5 años de experiencia. Mi trayectoria abarca el diseño gráfico, la creación de interfaces y experiencias de usuario, así como el desarrollo de soluciones tecnológicas con un stack PERN. Además, tengo un profundo interés en la ciberseguridad.
     </Fragment>
   </Hero>
 
-  <!-- Note Widget ******************* -->
-
-  <Note />
-
-  <!-- Features Widget *************** -->
-
-  <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022."
-    items={[
-      {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
-      },
-    ]}
-  />
-
   <!-- Content Widget **************** -->
 
   <Content
-    isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
+    id="about"
+    columns={3}
     items={[
       {
-        title: 'Built on top of Astro 4.0',
-        description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
+        icon: 'tabler:brand-dribbble',
+        callToAction: {
+          target: '_blank',
+          text: 'Dribbble',
+          href: '#',
+        },
       },
       {
-        title: 'Styled using Tailwind CSS',
-        description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
+        icon: 'tabler:brand-behance',
+        callToAction: {
+          target: '_blank',
+          text: 'Behance',
+          href: '#',
+        },
       },
       {
-        title: 'Cross-browser compatibility',
-        description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
+        icon: 'tabler:brand-pinterest',
+        callToAction: {
+          target: '_blank',
+          text: 'Pinterest',
+          href: '#',
+        },
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: '/cv.jpg',
       alt: 'Colorful Image',
+      loading: 'eager',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Sobre mi</h2>
+      <p>
+        Inicié mi formación en Codecademy y continué capacitándome en desarrollo durante la convocatoria de la startup chilena LarnU SPA, donde me formé como desarrollador full-stack. He participado en varios hackathones, destacando un tercer lugar en LATAM en "Hackeando Brechas para Inclusión" de Ucamp.io.
+      </p>
+      <br />
+      <p>
+        Mis intereses incluyen la ciberseguridad, correr, el boxeo y la animación. Además, sigo desarrollándome en el área de programación, aprendiendo lenguajes como PHP y C#.      </p>
+      <br />
+      <p>Aquí puedes seguirme:</p>
     </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
-      },
-      {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
-    }}
-  >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -217,183 +108,540 @@ const metadata = {
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="Get your dream website up and running in no time with AstroWind."
+    id="resume"
+    title="Experiencia"
     items={[
       {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
+        title:
+          'Fronted Engineer <br /> <span class="font-normal">Kutamma | Kuoka, Santiago, CL</span> <br /> <span class="text-sm font-normal">2024 - Freelance </span>',
+        description: `Diseñé y desarrollé la plataforma web Kuoka para la búsqueda de eventos en Chile utilizando Next.js, mejorando la eficiencia y visibilidad de los eventos. Además, colaboré con equipos multifuncionales para desarrollar soluciones de UI/UX para el MVP (Producto Mínimo Viable).`,
+        icon: 'tabler:briefcase',
       },
       {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
+        title:
+          'Consultor en Tecnologías de la Información <br /> <span class="font-normal">Agencia Nexus Marketing IA, Reynosa,Tamaulipas, MX</span> <br /> <span class="text-sm font-normal">2024 - Tiempo libre</span>',
+        description: `Lideré la implementación de un chatbot con IA, utilizando APIs de Tavely y OpenAI, para mejorar los procesos de asesoría de marketing, logrando una reducción del 20% en los tiempos de asesoría. Supervisé equipos multifuncionales para desarrollar soluciones personalizadas para clientes, mejorando la satisfacción del cliente en un 30% a través de sus sitios web. Utilicé tecnologías como Next.js, Astro.js, WordPress, FlutterFlow, HTML, CSS, Bootstrap, Sass y JavaScript.`,
+        icon: 'tabler:briefcase',
       },
       {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
+        title:
+          'Coordinador de Centro de Negocios <br /> <span class="font-normal">Universidad Tamaulipeca, Reynosa,Tamaulipas, MX</span> <br /> <span class="text-sm font-normal">2023 - 2024</span>',
+        description: `Lideré la creación y desarrollo del departamento de centro de negocios, superando metas en el primer año y estableciendo una base sólida. Implementé soluciones LMS y gestioné el proyecto USICAMM con la Secretaría de Educación Pública, capacitando a más de 1,200 maestros. Desarrollé un sistema de validación de certificados con Python y Node.js, mejorando la seguridad. Participé en reuniones de alta dirección para planificación estratégica y gestioné metas departamentales. Creé tableros de control dinámicos y supervisé el personal, gestionando presupuestos y mejorando la eficiencia operativa. Además, realicé atención al cliente y encuestas de satisfacción.`,
+        icon: 'tabler:briefcase',
       },
       {
-        title: 'Ready!',
-        icon: 'tabler:check',
+        title:
+          'Web Developer <br /> <span class="font-normal">Autónomo, Reynosa,Tamaulipas, MX - Remoto </span> <br /> <span class="text-sm font-normal">2020 - 2022</span>',
+        description: `Colaboré con empresas como Creativa Studio, Marc Engineer and Technologies LLC, y Bym Group para implementar proyectos de diseño web, mejorando la presencia en línea de más de 15 clientes. Diseñé y desarrollé sitios web, gráficos y materiales publicitarios utilizando HTML, CSS, JavaScript, Photoshop, Illustrator y Canva, logrando un aumento del 40% en la satisfacción del cliente y mejorando la retención en un 25%. Para LarnU SPA startup chilena acelerada por Google, desarrollé un portal para desarrolladores con React.js y Vite.js, mejorando la accesibilidad y la experiencia del usuario. Implementé un sistema de CI/CD con GitHub Actions, reduciendo el tiempo de despliegue en un 30% y mejorando la eficiencia del desarrollo. Asesoré a clientes y realicé sesiones de recolección de requerimientos y seguimiento.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Coordinador de Incubadora de Negocios <br /> <span class="font-normal">CICADE REYNOSA, Reynosa, Tamaulipas, MX</span> <br /> <span class="text-sm font-normal">2018 - 2020</span>',
+        description: `Desarrollé relaciones internas y externas para el crecimiento de la incubadora, representando al estado en la Semana Nacional del Emprendedor México en 2018 y 2019. Capacité a 373 emprendedores locales y apoyé 60 proyectos de mujeres emprendedoras. Participé en el Taller de Gestión de Recursos para Municipios por Cecani Latinoamericana. Además, brindé atención y seguimiento a los programas académicos de los estudiantes y la oferta de programas de incubación.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Técnico de Lean Manufacturing <br /> <span class="font-normal">Corning Inc, Reynosa, Tamaulipas, MX</span> <br /> <span class="text-sm font-normal">2016 - 2018</span>',
+        description: `
+Implementé soluciones de manufactura esbelta, incluyendo toma de tiempos, balanceo de líneas de producción y resolución de problemas. Apliqué metodologías como VSM (Value Stream Mapping), 5S y SMED, y participé activamente en el equipo principal del área para identificar y abordar las causas raíces de los problemas, mejorando significativamente la eficiencia y la productividad.`,
+        icon: 'tabler:briefcase',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    id="resume"
+    title="Educación"
+    items={[
+      {
+        title: `Maestría en Tecnología Educativa <br /> <span class="font-normal">UTEL Universidad</span> <br /> <span class="text-sm font-normal">2023 - en curso</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Fundamentos de UX / UI  <br /> <span class="font-normal">Ucamp.io</span> <br /> <span class="text-sm font-normal">2023</span>`,
+        icon: 'tabler:school',
+      },
+      
+      {
+        title: `Full Stack Developer <br /> <span class="font-normal">LarnU SPA</span> <br /> <span class="text-sm font-normal">2023</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Desarrollador de JavaScript (React) <br /> <span class="font-normal">Inttelmex IT</span> <br /> <span class="text-sm font-normal">2020</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Ingenieria Idustrial y Administracion <br /> <span class="font-normal">UTEL Universidad</span> <br /> <span class="text-sm font-normal">2016 - 2019</span>`,
+        icon: 'tabler:school',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="Habilidades"
+    subtitle=""
+    columns={3}
+    defaultIcon="tabler:point-filled"
+    items={[
+      {
+        title: 'Lenguajes de Programación',
+        description: 'JavaScript, Python, Ruby, PHP y Bash Shell',
+      },
+      {
+        title: 'Bases de Datos',
+        description: 'MySQL, Postgrest, Firebase y Supabase',
+      },
+      {
+        title: 'Frameworks',
+        description: 'React.js, Astro.js, Next.js, Node.js y Express.js',
+      },
+      {
+        title: 'Data Analyst',
+        description: 'Python, Numpy, Pandas, Matplotlib, Google Colab y Looker Studio Google',
+      },
+      {
+        title: 'Sistemas Operativos',
+        description: 'Windows, Linux Ubuntu y Parrot OS',
+      },
+      {
+        title: 'UX / UI',
+        description: 'Design Thinking, Figma y Miro',
+      },
+      {
+        title: 'Ingeniería ',
+        description: 'Lean, 5S, Six Sigma, Autocad, Excel y Power BI',
+      },
+      {
+        title: 'Testing ',
+        description: 'Jest, Vitest y Pytest',
+      },
+      {
+        title: 'Otras Herramientas',
+        description: 'Github, Docker, Git Actions, Wordpress y FluterFlow',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    id="porfolio"
+    title="Proyectos"
+    subtitle=""
+    isReversed
+    items={[
+      {
+        title: 'Descripción:',
+        description:
+          'Diseñé y desarrollé la plataforma web Kuoka utilizando Next.js, mejorando la eficiencia y visibilidad de los eventos. Colaboré con equipos multifuncionales para desarrollar soluciones de UI/UX para el MVP.',
+      },
+      {
+        title: 'Rol:',
+        description:
+          'Desarrollador Frontend',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
+      src: '/kaoka.png',
+      alt: 'Tech Design Image',
     }}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
+    callToAction={{
+      target: '_blank',
+      text: 'Ver Prototipo',
+      icon: 'tabler:chevron-right',
+      href: 'https://katu-frontend-t0ny-dev-t0nydevs-projects.vercel.app/?_vercel_share=YAMcZ09pYKc24nGu0GpbAyWXa9xJNoif',
+    }}
   >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Kauoka: <br /><span class="text-2xl">Plataforma de búsqueda de eventos en Chile</span>
+      </h3>
+    </Fragment>
+
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-  </Features2>
+  </Content>
 
-  <!-- HighlightedPosts Widget ******* -->
+  <!-- Content Widget **************** -->
 
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
+  <Content
+    isReversed
+    isAfterContent={true}
     items={[
       {
-        title: 'Why AstroWind?',
+        title: 'Descripción:',
         description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+          'Nexus Marketing IA es una agencia impulsada por un chatbot de asesoría de marketing, utilizando tecnologías de inteligencia artificial para optimizar y agilizar los procesos de asesoría. Implementé soluciones con APIs de Tavely y OpenAI para mejorar la eficiencia de las consultas de marketing, logrando una reducción del 20% en los tiempos de asesoría.',
       },
       {
-        title: 'What do I need to start?',
-        description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+        title: 'Rol:',
+        description: `Lideré el diseño y desarrollo del chatbot, supervisando la integración de APIs y asegurando una interacción fluida con los usuarios`,
       },
     ]}
-  />
+    image={{
+      src: '/IA.png',
+      alt: 'Art and Music Poster Image',
+    }}
+    callToAction={{
+      target: '_blank',
+      text: 'Ver sitio web',
+      icon: 'tabler:chevron-right',
+      href: 'https://agencianexusmarketing.com/',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Nexus Marketing IA <br /><span class="text-2xl">Chatbot de Asesoría de Marketing con IA</span>
+      </h3>
+    </Fragment>
 
-  <!-- Stats Widget ****************** -->
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
 
-  <Stats
-    stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Descripción:',
+        description: `Implementé un Sistema de Gestión de Aprendizaje (LMS) para el Business Center UT, mejorando la capacitación y el seguimiento de más de 1,200 maestros en el estado. El proyecto fue realizado en colaboración con la Secretaría de Educación Pública y formó parte del proyecto USICAMM.`,
+      },
+      {
+        title: 'Rol:',
+        description: `Lideré la implementación de soluciones LMS, gestioné los requisitos del proyecto y coordiné con diversos equipos para asegurar una integración fluida del sistema.`,
+      },
+    ]}
+    image={{
+      src: '/lms.png',
+      alt: 'Fashion e-commerce Image',
+    }}
+    callToAction={{
+      target: '_blank',
+      text: 'Ver diseños en figma',
+      icon: 'tabler:chevron-right',
+      href: 'https://www.figma.com/design/lomldd8tMsv6fj8ThWcpPW/Business-Center-2024?node-id=0-1&t=1L4IQO8RjlbrIYMx-1',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Business Center UT: <br /><span class="text-2xl">Implementación de LMS </span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Content
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Descripción:',
+        description: `Desarrollé un generador de códigos QR con Python y desplegué una API con Node.js en OnRender para validar certificados. Este proyecto mejoró significativamente la seguridad y la eficiencia en la verificación de certificados emitidos por el Business Center UT con un total de 1200 QR.`,
+      },
+      {
+        title: 'Rol:',
+        description: `Lideré el desarrollo del generador de QR, implementando la lógica en Python para crear códigos únicos. Además, desplegué y gestioné una API con Node.js que contenía la lista de certificados, permitiendo su validación en tiempo real.`,
+      },
+    ]}
+    image={{
+      src: '/qr.png',
+      alt: 'Fashion e-commerce Image',
+    }}
+    callToAction={{
+      target: '_blank',
+      text: 'Ver muestra de Validación: ',
+      icon: 'tabler:chevron-right',
+      href: 'https://viewer-cert-usicamm.vercel.app/?id=1',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Business Center UT: <br /><span class="text-2xl">Generador de QR con Python y Validación de certificados </span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Content
+  isReversed
+  isAfterContent={true}
+  items={[
+    {
+      title: 'Descripción:',
+      description: `DUtilizando SurveyJS, desarrollé un sistema de encuestas que permite controlar el acceso y la recopilación de datos mediante un login. Este sistema asegura que solo usuarios autorizados puedan completar las encuestas, mejorando la precisión y relevancia de los datos recolectados. Los usuarios pueden ver las muestras de test y los resultados en tiempo real, optimizando el proceso de análisis y toma de decisiones.`,
+    },
+    {
+      title: 'Rol:',
+      description: `Lideré el desarrollo del sistema de encuestas con SurveyJS, implementando un sistema de login para controlar el acceso de los usuarios con firebase`,
+    },
+  ]}
+  image={{
+    src: '/survey.png',
+    alt: 'Fashion e-commerce Image',
+  }}
+  callToAction={{
+    target: '_blank',
+    text: 'Ver Ejemplo',
+    icon: 'tabler:chevron-right',
+    href: 'https://surveyjs.io/published?id=1b643086-3f3c-4461-a395-004ca6ad13fd',
+  }}
+  
+>
+  <Fragment slot="content">
+    <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+      Encuestas con JavaScript <br /><span class="text-2xl">SurveyJS Encuestas </span>
+    </h3>
+  </Fragment>
+
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</Content>
+
+
+<Content
+isReversed
+isAfterContent={true}
+items={[
+  {
+    title: 'Descripción:',
+    description: `Desarrollé un sistema para generar certificados en PDF basados en la entrada de correos electrónicos utilizando jsPDF. Los usuarios ingresan su correo electrónico, y si está registrado en el sistema, se genera y muestra abajo un certificado en formato PDF`,
+  },
+  {
+    title: 'Rol:',
+    description: `Lideré el desarrollo del sistema de generación de certificados. Utilicé jsPDF para crear los certificados en formato PDF y diseñé una interfaz de usuario intuitiva para la entrada de correos electrónicos. Para probar el sistema, puedes ingresar el correo "lic.minervareyna1970@gmail.com"`,
+  },
+]}
+image={{
+  src: '/cert.png',
+  alt: 'Fashion e-commerce Image',
+}}
+callToAction={{
+  target: '_blank',
+  text: 'Generar certidicado',
+  icon: 'tabler:chevron-right',
+  href: 'https://reynosa-utlc-cert-2024.netlify.app/b1',
+}}
+>
+<Fragment slot="content">
+  <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+    Business Center UT: <br /><span class="text-2xl">Generador de certificados por correo </span>
+  </h3>
+</Fragment>
+
+<Fragment slot="bg">
+  <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+</Fragment>
+</Content>
+
+
+<Content
+isReversed
+isAfterContent={true}
+items={[
+  {
+    title: 'Descripción:',
+    description: `Construí un kiosko interactivo utilizando Firebase como base de datos para enviar y gestionar actividades. Este sistema permite a los usuarios interactuar con diferentes módulos y funcionalidades. En este demo, se presenta específicamente el módulo de autenticación facial, que mejora la seguridad y personalización del servicio.`,
+  },
+  {
+    title: 'Rol:',
+    description: `Diseñé y desarrollé el kiosko, integrando Firebase como la base de datos principal para almacenar y gestionar la información de actividades. Implementé el módulo de autenticación facial`,
+  },
+]}
+image={{
+  src: '/face.png',
+  alt: 'Fashion e-commerce Image',
+}}
+callToAction={{
+  target: '_blank',
+  text: 'Ver Módulo',
+  icon: 'tabler:chevron-right',
+  href: 'https://auth-facial-js.vercel.app/',
+}}
+>
+<Fragment slot="content">
+  <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+    Autentificación  Facial: <br /><span class="text-2xl">Kisko de actividades por Autentificacion Facial</span>
+  </h3>
+</Fragment>
+
+<Fragment slot="bg">
+  <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+</Fragment>
+</Content>
+
+
+
+<Content
+isReversed
+isAfterContent={true}
+items={[
+  {
+    title: 'Descripción:',
+    description: `Desarrollé una mini aplicación de Todo List utilizando React. Esta aplicación permite a los usuarios agregar, editar, y eliminar tareas, proporcionando una herramienta simple y eficiente para la gestión de actividades diarias`,
+  },
+  {
+    title: 'Rol:',
+    description: `Lideré el desarrollo completo de la aplicación Todo List. Utilicé React para crear componentes reutilizables y gestioné el estado de la aplicación para asegurar una interacción fluida y eficiente. `,
+  },
+]}
+image={{
+  src: '/todos.png',
+  alt: 'Fashion e-commerce Image',
+}}
+callToAction={{
+  target: '_blank',
+  text: 'Ver',
+  icon: 'tabler:chevron-right',
+  href: 'https://react-todos-lilac.vercel.app/',
+}}
+>
+<Fragment slot="content">
+  <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+    React: <br /><span class="text-2xl">Todo List</span>
+  </h3>
+</Fragment>
+
+<Fragment slot="bg">
+  <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+</Fragment>
+</Content>
+
+<Content
+isReversed
+isAfterContent={true}
+items={[
+  {
+    title: 'Descripción:',
+    description: `El Repositorio de Proyectos Frontend es una colección de proyectos de UI/UX desarrollados durante el programa Innovacción Microsoft. Estos proyectos incluyen una variedad de aplicaciones y sitios web, demostrando habilidades en diseño y desarrollo frontend. `,
+  },
+  {
+    title: 'Rol:',
+    description: `Participé activamente en el diseño y desarrollo de cada uno de estos proyectos, aplicando mis habilidades en HTML, CSS, JavaScript y React`,
+  },
+]}
+image={{
+  src: '/microsoft.png',
+  alt: 'Fashion e-commerce Image',
+}}
+callToAction={{
+  target: '_blank',
+  text: 'Ir al sitio',
+  icon: 'tabler:chevron-right',
+  href: 'https://t0ny-dev.github.io/MisionFrontEnd-Launch-X-Latam/',
+}}
+>
+<Fragment slot="content">
+  <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+    Innovacción de Microsoft <br /><span class="text-2xl">Repositorio de de proyectos Frontend</span>
+  </h3>
+</Fragment>
+
+<Fragment slot="bg">
+  <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+</Fragment>
+</Content>
+
+
+<Content
+isReversed
+isAfterContent={true}
+items={[
+  {
+    title: 'Descripción:',
+    description: `Desarrollé una aplicación que consulta y muestra el clima de diversas ciudades utilizando una API de clima. La aplicación permite a los usuarios ingresar el nombre de una ciudad y obtener información actualizada sobre las condiciones meteorológicas, como temperatura, humedad y descripción general del clima`,
+  },
+  {
+    title: 'Rol',
+    description: `Desarrollé una aplicación que consulta y muestra el clima de diversas ciudades utilizando una API de clima. La aplicación permite a los usuarios ingresar el nombre de una ciudad y obtener información actualizada sobre las condiciones meteorológicas, como temperatura, humedad y descripción general del clima`,
+  },
+]}
+image={{
+  src: 'clima.png',
+  alt: 'Fashion e-commerce Image',
+}}
+callToAction={{
+  target: '_blank',
+  text: 'Ver consulta de clima',
+  icon: 'tabler:chevron-right',
+  href: 'https://t0ny-dev.github.io/api_weather_js/',
+}}
+>
+<Fragment slot="content">
+  <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+    Api Weather:<br /><span class="text-2xl">Consulta clima de ciudades</span>
+  </h3>
+</Fragment>
+
+<Fragment slot="bg">
+  <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+</Fragment>
+</Content>
+
+
+
+
+  <!-- Testimonials Widget *********** -->
+
+  <Testimonials
+    title="Colaboraciones y opiniones"
+    subtitle=""
+    testimonials={[
+      {
+        testimonial: `Dinámico, proactivo, servicial, con sentido de urgencia para el trabajo. Innovador y en busca de mejora continua para los procesos del puesto que desempeñe. 
+          Un ser humano grandioso al cual tuve la dicha de conocer.`,
+        name: 'Amayrani Janeth',
+        job: 'Auxiliar de RH',
+        image: {
+          src: 'https://media.licdn.com/dms/image/C4E03AQH3lyGysV3j-g/profile-displayphoto-shrink_100_100/0/1539564379453?e=1725494400&v=beta&t=t01KV5Zl8B6A-pklzpOtz4SIHalep9d8DrkB29gGFKc',
+          alt: 'Mark Thompson Image',
+        },
+      },
+      {
+        testimonial: `Recomiendo a Antonio Rodríguez por su destacado liderazgo durante nuestro exitoso Hackathon, Hackeando Brechas, Desempleo en LATAM 2023, donde obtuvimos el 3er lugar. Su habilidad para motivar y colaborar efectivamente con el equipo multidisciplinario fue impresionante, demostró una visión estratégica, capacidad para manejar la presión y tomar decisiones informadas en un tiempo limitado. Su creatividad e innovación fueron fundamentales para proponer soluciones únicas y obtener resultados sobresalientes, po lo que me es grato recomedar a Antonio para cualquier proyecto que requiera liderazgo estratégico y habilidades de gestión de equipos.`,
+        name: 'Sandra Vicencio',
+        job: 'Desarrollo de Negocios',
+        image: {
+          src: 'https://media.licdn.com/dms/image/D5603AQHFCR77KL8yiw/profile-displayphoto-shrink_100_100/0/1704323381789?e=1725494400&v=beta&t=USSRnBYrRXi_a7xiuUKDKW7QYa-DVR-xsoYtQssuntA',
+          alt: 'Emily Martinez Image',
+        },
+      },
+
     ]}
   />
 
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
+    title="Empecemos a crear"
+    subtitle="Colaboremos en un proecto"
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        text: 'Hire me',
+        href: '/',
       },
     ]}
-  >
-    <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
-    </Fragment>
+  />
 
-    <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
-    </Fragment>
-  </CallToAction>
+  <!-- BlogLatestPost Widget **************** -->
 </Layout>

@@ -8,11 +8,11 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import Steps from '~/components/widgets/Steps.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
 import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'Personal Homepage Demo',
+  title: 'T0ny-dev Desarrollador Full Stack',
 };
 ---
 
@@ -29,8 +29,8 @@ const metadata = {
       ]}
       actions={[
         {
-          text: 'Hire me',
-          href: '#',
+          text: 'Currículum Vitae',
+          href: '/ara_curriculum.pdf',
         },
       ]}
       isSticky
@@ -44,7 +44,7 @@ const metadata = {
     id="hero"
     title="Antonio Rodríguez Avilés"
     tagline="Full Stack Developer"
-    actions={[{ variant: 'primary', text: 'contacto', href: getPermalink('/contact#form') }]}
+    actions={[{ variant: 'primary', text: 'Currículum Vitae', href: getPermalink('/ara_curriculum.pdf') }]}
   >
     <Fragment slot="subtitle">
       Soy ingeniero industrial y desarrollador con más de 5 años de experiencia. Mi trayectoria abarca el diseño gráfico, la creación de interfaces y experiencias de usuario, así como el desarrollo de soluciones tecnológicas con un stack PERN. Además, tengo un profundo interés en la ciberseguridad.
@@ -57,30 +57,16 @@ const metadata = {
     id="about"
     columns={3}
     items={[
-      {
-        icon: 'tabler:brand-dribbble',
-        callToAction: {
-          target: '_blank',
-          text: 'Dribbble',
-          href: '#',
-        },
-      },
+
       {
         icon: 'tabler:brand-behance',
         callToAction: {
           target: '_blank',
           text: 'Behance',
-          href: '#',
+          href: 'https://www.behance.net/agencia-nexus',
         },
       },
-      {
-        icon: 'tabler:brand-pinterest',
-        callToAction: {
-          target: '_blank',
-          text: 'Pinterest',
-          href: '#',
-        },
-      },
+
     ]}
     image={{
       src: '/cv.jpg',
@@ -387,7 +373,7 @@ Implementé soluciones de manufactura esbelta, incluyendo toma de tiempos, balan
   items={[
     {
       title: 'Descripción:',
-      description: `DUtilizando SurveyJS, desarrollé un sistema de encuestas que permite controlar el acceso y la recopilación de datos mediante un login. Este sistema asegura que solo usuarios autorizados puedan completar las encuestas, mejorando la precisión y relevancia de los datos recolectados. Los usuarios pueden ver las muestras de test y los resultados en tiempo real, optimizando el proceso de análisis y toma de decisiones.`,
+      description: `Utilizando SurveyJS, desarrollé un sistema de encuestas que permite controlar el acceso y la recopilación de datos mediante un login. Este sistema asegura que solo usuarios autorizados puedan completar las encuestas, mejorando la precisión y relevancia de los datos recolectados. Los usuarios pueden ver las muestras de test y los resultados en tiempo real, optimizando el proceso de análisis y toma de decisiones.`,
     },
     {
       title: 'Rol:',
@@ -637,8 +623,8 @@ callToAction={{
     actions={[
       {
         variant: 'primary',
-        text: 'Hire me',
-        href: '/',
+        text: 'Currículum Vitae',
+        href: '/ara_curriculum.pdf',
       },
     ]}
   />

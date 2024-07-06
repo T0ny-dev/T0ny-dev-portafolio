@@ -1,0 +1,62 @@
+---
+const githubUrl = "https://github.com/T0ny-dev";
+const cvUrl = "/ara_curriculum.pdf";
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="logo">
+      T0ny-dev
+    </div>
+    <div class="links">
+      <a href={githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href={cvUrl} target="_blank" rel="noopener noreferrer">Curriculum Vitae</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid #475569;
+    background-color: #030620;
+    color: #fff;
+    padding: 20px 0;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .links a {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .links a:hover {
+    color: #1e90ff;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .links a {
+      margin: 10px 0;
+    }
+  }
+</style>
